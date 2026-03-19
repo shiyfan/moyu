@@ -91,6 +91,10 @@
 19.仿 Windows 桌面：[https://haiyong.site/win/](https://haiyong.site/win/)\
 20.图片-pdf转换器：[https://haiyong.site/tools/pdf.html](https://haiyong.site/tools/pdf.html)
 
+### 内容
+
+1.佛山家具店探店推荐：[内容-1.佛山家具店推荐/index.html](内容-1.佛山家具店推荐/index.html)
+
 ### 动画
 
 1.樱花：[https://haiyong.site/demo/yinghua.html](https://haiyong.site/demo/yinghua.html)\

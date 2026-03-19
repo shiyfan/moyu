@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>佛山家具店探店推荐 | 装修必看</title>
+  <link rel="icon" href="https://haiyong.site/img/favicon.png" sizes="192x192" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: #faf9f7;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* 顶部 Banner */
+    .hero {
+      background: linear-gradient(135deg, #e8d5c4 0%, #f5ebe0 50%, #e8d5c4 100%);
+      padding: 48px 20px 40px;
+      text-align: center;
+    }
+
+    .hero .tag {
+      display: inline-block;
+      background: #c8956c;
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #3d2b1f;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .hero .subtitle {
+      font-size: 14px;
+      color: #7a5c48;
+      margin-bottom: 18px;
+    }
+
+    .hero .emoji-row {
+      font-size: 22px;
+      letter-spacing: 6px;
+    }
+
+    /* 正文内容 */
+    .content {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* 开场白 */
+    .intro {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      font-size: 15px;
+      color: #4a3728;
+      border-left: 4px solid #c8956c;
+    }
+
+    .intro p + p {
+      margin-top: 10px;
+    }
+
+    /* 家具店卡片 */
+    .store-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .store-card .cover-img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+
+    .store-card .card-body {
+      padding: 20px 20px 24px;
+    }
+
+    .store-name-badge {
+      display: inline-block;
+      background: #f0c9a8;
+      color: #7a3f1a;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+
+    .store-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13.5px;
+      color: #555;
+    }
+
+    .meta-item .icon {
+      flex-shrink: 0;
+      font-size: 15px;
+      margin-top: 1px;
+    }
+
+    .meta-item.location {
+      color: #c8956c;
+      font-weight: 600;
+    }
+
+    .meta-item.brand-type {
+      color: #888;
+    }
+
+    .store-desc {
+      font-size: 15px;
+      color: #4a3728;
+      background: #fdf7f2;
+      border-radius: 10px;
+      padding: 14px 16px;
+      line-height: 1.8;
+    }
+
+    .store-desc .highlight {
+      color: #c8956c;
+      font-weight: 600;
+    }
+
+    /* 标签 */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag-item {
+      background: #f5ebe0;
+      color: #a05c35;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* 价格指示 */
+    .price-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    .price-dots span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ddd;
+      margin-right: 3px;
+    }
+
+    .price-dots span.active {
+      background: #c8956c;
+    }
+
+    /* 小结 */
+    .summary {
+      background: linear-gradient(135deg, #3d2b1f, #7a5c48);
+      color: #fff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin-bottom: 28px;
+    }
+
+    .summary h3 {
+      font-size: 16px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-table {
+      width: 100%;
+      font-size: 13px;
+      border-collapse: collapse;
+    }
+
+    .summary-table th,
+    .summary-table td {
+      text-align: left;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      vertical-align: top;
+    }
+
+    .summary-table th {
+      color: #f0c9a8;
+      width: 28%;
+    }
+
+    .summary-table tr:last-child th,
+    .summary-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* 结语 */
+    .outro {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      font-size: 15px;
+      color: #4a3728;
+      text-align: center;
+    }
+
+    .outro p + p {
+      margin-top: 10px;
+    }
+
+    .outro .big-emoji {
+      font-size: 28px;
+      margin: 10px 0;
+    }
+
+    /* Hashtags */
+    .hashtags {
+      font-size: 13px;
+      color: #c8956c;
+      text-align: center;
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+
+    /* 底部 */
+    footer.page-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    footer.page-footer a {
+      color: #c8956c;
+      text-decoration: none;
+    }
+
+    /* 分割线 */
+    .divider {
+      text-align: center;
+      color: #c8956c;
+      font-size: 18px;
+      margin: 0 0 24px;
+      letter-spacing: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部 Banner -->
+  <div class="hero">
+    <div class="tag">探店实测 · 装修干货</div>
+    <h1>佛山家具店探店指南<br>买家具前一定要看！</h1>
+    <p class="subtitle">亲自逛了这 4 家，帮你避坑省时间 🏠</p>
+    <div class="emoji-row">🛋️ 🪑 🪞 🛏️</div>
+  </div>
+
+  <div class="content">
+
+    <!-- 开场白 -->
+    <div class="intro">
+      <p>大家好！作为一个正在装修的素人博主，最近跑了好几趟佛山顺德、南海，把几家口碑不错的家具店都逛了一遍 🤩</p>
+      <p>每家店的风格和定位都挺不一样的，整理出来分享给大家，希望帮正在选家具的你节省一些时间和精力！</p>
+      <p>文章末尾有汇总表格，可以直接对照自己的风格找合适的 ✅</p>
+    </div>
+
+    <div class="divider">· · ·</div>
+
+    <!-- 店铺 1: DADZ -->
+    <div class="store-card">
+      <img
+        class="cover-img"
+        src="https://github.com/user-attachments/assets/522687f9-ea51-41a7-9547-2e42f26a546a"
+        alt="DADZ家具店"
+        loading="lazy"
+      />
+      <div class="card-body">
+        <div class="store-name-badge">DADZ</div>
+        <div class="store-meta">
+          <div class="meta-item location">
+            <span class="icon">📍</span>
+            <span>顺德乐从罗浮宫博览中心 D 区 3 楼</span>
+          </div>
+          <div class="meta-item brand-type">
+            <span class="icon">🏷️</span>
+            <span>国内知名原创设计师品牌</span>
+          </div>
+        </div>
+        <div class="store-desc">
+          进门就被整体氛围惊艳到了！整个展厅以
+          <span class="highlight">侘寂风</span>
+          为主基调，白墙、原木、藤编灯罩……有一种淡淡的民宿感，拍照也超好看 📸
+          <br /><br />
+          产品款式个性十足，不走常规路线，设计感很强。如果你喜欢
+          <span class="highlight">偏冷静、有禅意</span>
+          的风格，来这里一定有惊喜。另外他家的
+          <span class="highlight">软装灯饰</span>
+          也非常值得逛，搭配主家具选一套氛围感直接拉满！
+        </div>
+        <div class="tags">
+          <span class="tag-item">侘寂风</span>
+          <span class="tag-item">民宿风</span>
+          <span class="tag-item">原创设计</span>
+          <span class="tag-item">软装灯饰</span>
+        </div>
+        <div class="price-bar">
+          <span>价格：</span>
+          <div class="price-dots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span>中高档</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 店铺 2: Dojus -->
+    <div class="store-card">
+      <img
+        class="cover-img"
+        src="https://github.com/user-attachments/assets/fe8834a6-8502-4cb5-917d-e8d6c2d73af5"
+        alt="Dojus家具店"
+        loading="lazy"
+      />
+      <div class="card-body">
+        <div class="store-name-badge">Dojus</div>
+        <div class="store-meta">
+          <div class="meta-item location">
+            <span class="icon">📍</span>
+            <span>顺德区河滨南路 3 号</span>
+          </div>
+          <div class="meta-item brand-type">
+            <span class="icon">🏷️</span>
+            <span>国内设计师品牌</span>
+          </div>
+        </div>
+        <div class="store-desc">
+          这家是<span class="highlight">中古风</span>爱好者的天堂！真皮沙发以黑棕色调为主，粗犷又有质感，坐上去也超级舒服 🛋️
+          <br /><br />
+          展厅的空间布置很有<span class="highlight">氛围感</span>——书架、皮质座椅、复古小茶几，每个角落都像一个精心布置的生活场景，在里面逛可以获得不少
+          <span class="highlight">搭配灵感</span>，
+          就算不买也值得来感受一下！喜欢中古、复古风格的朋友强烈推荐。
+        </div>
+        <div class="tags">
+          <span class="tag-item">中古风</span>
+          <span class="tag-item">真皮沙发</span>
+          <span class="tag-item">黑棕色调</span>
+          <span class="tag-item">氛围感</span>
+        </div>
+        <div class="price-bar">
+          <span>价格：</span>
+          <div class="price-dots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span>中高档</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 店铺 3: Halo家具 -->
+    <div class="store-card">
+      <img
+        class="cover-img"
+        src="https://github.com/user-attachments/assets/9a5c121d-cb6a-4b98-a128-260f3242bcc5"
+        alt="Halo家具"
+        loading="lazy"
+      />
+      <div class="card-body">
+        <div class="store-name-badge">Halo 家具</div>
+        <div class="store-meta">
+          <div class="meta-item location">
+            <span class="icon">📍</span>
+            <span>顺德乐从东村开发区国际家私城</span>
+          </div>
+          <div class="meta-item brand-type">
+            <span class="icon">🏷️</span>
+            <span>英国进口家具品牌</span>
+          </div>
+        </div>
+        <div class="store-desc">
+          这家让我眼前一亮！整个展厅充满了
+          <span class="highlight">英伦复古</span>
+          气质，水晶吊灯、皮质沙发、暗色调墙面……非常有贵族质感 ✨
+          <br /><br />
+          主打款式是
+          <span class="highlight">皮沙发</span>，
+          款式经典耐看，特别适合喜欢英伦复古风格的朋友。值得一提的是，店里还可以带宠物进去参观，超宠物友好 🐶
+          <br /><br />
+          需要注意的是价格相对偏高，毕竟是进口品牌，预算充足的朋友可以重点看看。
+        </div>
+        <div class="tags">
+          <span class="tag-item">英伦复古</span>
+          <span class="tag-item">皮沙发</span>
+          <span class="tag-item">进口品牌</span>
+          <span class="tag-item">宠物友好</span>
+        </div>
+        <div class="price-bar">
+          <span>价格：</span>
+          <div class="price-dots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+          </div>
+          <span>偏高</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 店铺 4: Kena可纳 -->
+    <div class="store-card">
+      <img
+        class="cover-img"
+        src="https://github.com/user-attachments/assets/a7e5cf27-9469-4aad-88eb-316e9384db51"
+        alt="Kena可纳家具"
+        loading="lazy"
+      />
+      <div class="card-body">
+        <div class="store-name-badge">Kena 可纳</div>
+        <div class="store-meta">
+          <div class="meta-item location">
+            <span class="icon">📍</span>
+            <span>南海区新经济产业中心 i 栋 6 楼</span>
+          </div>
+          <div class="meta-item brand-type">
+            <span class="icon">🏷️</span>
+            <span>国内知名原创设计师品牌</span>
+          </div>
+        </div>
+        <div class="store-desc">
+          品类是这几家里面最全的！沙发、床具、餐桌、书桌……
+          <span class="highlight">一站式</span>
+          采购完全没问题，能省下好几次跑腿 😄
+          <br /><br />
+          风格跨度也很大，涵盖
+          <span class="highlight">自然、复古、现代</span>
+          多个方向，实木与软体家具都有。展厅里灯具的陈列也非常用心，看着就像是一场
+          <span class="highlight">灯光艺术展</span> 🪔
+          <br /><br />
+          预算较高，但品质和设计感都对得起这个价格，想一步到位的朋友值得好好逛。
+        </div>
+        <div class="tags">
+          <span class="tag-item">全品类</span>
+          <span class="tag-item">实木家具</span>
+          <span class="tag-item">自然风</span>
+          <span class="tag-item">复古现代</span>
+          <span class="tag-item">灯具</span>
+        </div>
+        <div class="price-bar">
+          <span>价格：</span>
+          <div class="price-dots">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+          </div>
+          <span>偏高</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 快速汇总 -->
+    <div class="summary">
+      <h3>📋 快速对比汇总</h3>
+      <table class="summary-table">
+        <tr>
+          <th>DADZ</th>
+          <td>侘寂 / 民宿风，个性设计，灯饰推荐</td>
+        </tr>
+        <tr>
+          <th>Dojus</th>
+          <td>中古风，黑棕皮沙发，氛围感满分</td>
+        </tr>
+        <tr>
+          <th>Halo家具</th>
+          <td>英伦复古，皮沙发，进口品牌，价格偏高</td>
+        </tr>
+        <tr>
+          <th>Kena可纳</th>
+          <td>全品类，多风格，一站式选购，价格偏高</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 结语 -->
+    <div class="outro">
+      <div class="big-emoji">🏡</div>
+      <p>希望这篇攻略对正在选家具的你有帮助！</p>
+      <p>如果去逛了记得回来告诉我你最喜欢哪家 😊</p>
+      <p>觉得有用的话，收藏 + 点赞支持一下吧～</p>
+      <div class="big-emoji">❤️</div>
+    </div>
+
+    <!-- Hashtags -->
+    <div class="hashtags">
+      #佛山家具 #顺德家具 #装修干货 #家具推荐<br />
+      #软装搭配 #沙发推荐 #买家具避坑 #佛山探店
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <span>made by </span>
+    <a href="https://haiyong.site/moyu" target="_blank">海拥</a>
+  </footer>
+
+</body>
+</html>
